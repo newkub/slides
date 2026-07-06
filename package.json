@@ -1,0 +1,26 @@
+{
+  "name": "slides-monorepo",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "packageManager": "bun@1.3.13",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "export": "turbo run export",
+    "verify": "turbo run verify"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.16.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.33"
+  }
+}

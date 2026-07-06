@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.slidev/
+*.pdf
+*.local
+.vite-inspect
+.remote-assets
+components.d.ts
+.DS_Store
+.turbo/
+
+# Turborepo
+.turbo

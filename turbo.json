@@ -1,0 +1,26 @@
+{
+  "$schema": "https://v2.turborepo.dev/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["slides.md", "components/**", "layouts/**", "pages/**", "snippets/**", "public/**", "styles/**", "package.json"],
+      "outputs": ["dist/**"],
+      "cache": true
+    },
+    "export": {
+      "dependsOn": ["^build"],
+      "inputs": ["slides.md", "components/**", "layouts/**", "pages/**", "snippets/**", "public/**", "styles/**", "package.json"],
+      "outputs": ["*.pdf"],
+      "cache": false
+    },
+    "verify": {
+      "dependsOn": ["^build"],
+      "cache": false
+    }
+  },
+  "globalDependencies": ["package.json", "turbo.json", "bun.lock"]
+}

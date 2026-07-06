@@ -1,0 +1,6 @@
+export { default as CodeBlock } from './components/CodeBlock.vue'
+export { default as TopicCard } from './components/TopicCard.vue'
+export { default as ComparisonTable } from './components/ComparisonTable.vue'
+export { default as SectionDivider } from './layouts/SectionDivider.vue'
+export { default as CenterLayout } from './layouts/CenterLayout.vue'
+export { formatSlideTitle, slugify } from './utils/slide-utils'
