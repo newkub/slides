@@ -103,74 +103,49 @@ Turborepo + Bun workspaces monorepo for managing Slidev presentation slides. Eac
 
 <table><tr><td width="50%" valign="top">
 
-### Project Structure
+1. **Clone and Install** — `terminal`
 
-A Turborepo monorepo with shared components and per-project slides.
-
-```
-slides/
-├── package.json
-├── turbo.json
-├── packages/
-│   └── shared/
-│       ├── src/
-│       │   ├── components/
-│       │   ├── layouts/
-│       │   ├── utils/
-│       │   └── index.ts
-│       └── package.json
-└── apps/
-    ├── learn-rust/
-    │   ├── slides.md
-    │   └── package.json
-    └── solidjs/
-        ├── slides.md
-        ├── components/
-        ├── pages/
-        ├── snippets/
-        └── package.json
-```
-
-</td><td width="50%" valign="top">
-
-### 1. Clone and Install
+Clone the repo and install dependencies.
 
 ```bash
-### terminal
 git clone https://github.com/newkub/slides.git
 cd slides
 bun install
 ```
 
-### 2. Run a Presentation
+2. **Run a Presentation** — `terminal`
+
+Start the Slidev dev server for a specific project.
 
 ```bash
-### terminal
 bunx turbo run dev --filter=@slides/learn-rust
 ```
 
 Opens at `http://localhost:3031`
 
-### 3. Build Static Site
+3. **Build Static Site** — `terminal`
+
+Build slides as a static site for deployment.
 
 ```bash
-### terminal
 bunx turbo run build --filter=@slides/learn-rust
 ```
 
 Output: `apps/learn-rust/dist/`
 
-### 4. Export to PDF
+4. **Export to PDF** — `terminal`
+
+Export slides to a PDF file for offline sharing.
 
 ```bash
-### terminal
 bunx turbo run export --filter=@slides/learn-rust
 ```
 
-### 5. Create New Slide Project
+5. **Create New Slide Project** — `terminal`
+
+Create a new slide project with shared components.
 
 ```bash
-### terminal
 mkdir apps/my-topic
 ```
 
@@ -194,9 +169,49 @@ mkdir apps/my-topic
 ```
 
 ```bash
-### terminal
 bun install
 bunx turbo run dev --filter=@slides/my-topic
+```
+
+</td><td width="50%" valign="top">
+
+<p align="center">
+
+Quick start shows the result of running each step.<br>
+Turbo + Slidev work together seamlessly.
+
+</p>
+
+```ansi
+┌─────────────────────────────────────┐
+│  ✓ Cloned                           │
+│  ✓ Installed (1278 packages)        │
+│                                     │
+│  ● turbo 2.10.3                     │
+│  ● @slidev/cli 52.16.0              │
+│  ● @slidev/theme-seriph 0.25.0      │
+│                                     │
+│  ── Running dev server ──           │
+│                                     │
+│  ●■▲                                │
+│  Slidev  v52.16.0                   │
+│                                     │
+│  theme       seriph                 │
+│  css engine  unocss                 │
+│  entry       slides.md              │
+│                                     │
+│  ● public slide show                │
+│    http://localhost:3031/           │
+│                                     │
+│  ● presenter mode                   │
+│    http://localhost:3031/presenter  │
+│                                     │
+│  ● slides overview                  │
+│    http://localhost:3031/overview   │
+│                                     │
+│  ✓ Build → dist/                    │
+│  ✓ Export → slides.pdf              │
+└─────────────────────────────────────┘
 ```
 
 </td></tr></table>
