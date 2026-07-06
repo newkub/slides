@@ -10,95 +10,6 @@ Turborepo + Bun workspaces monorepo for managing Slidev presentation slides. Eac
 ![Slidev](https://img.shields.io/badge/Slidev-52.16.0-5d8390.svg)
 ![Vue](https://img.shields.io/badge/Vue-3.5.33-42b883.svg)
 
-## Project
-
-<details><summary>Goal</summary>
-
-| Icon | Goal | Status | Description |
-|------|------|--------|-------------|
-| ![target](https://api.iconify.design/mdi:target.svg) | Centralized slide management | ✓ Goal | Single repo for all Slidev presentations |
-| ![puzzle](https://api.iconify.design/mdi:puzzle.svg) | Shared components | ✓ Goal | Reusable Vue components across all slide projects |
-| ![bolt](https://api.iconify.design/mdi:flash.svg) | Turbo task orchestration | ✓ Goal | Build, dev, export tasks via Turborepo caching |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Per-project package.json | ✗ Not Goal | Root-level dependencies only for Slidev core |
-| ![building](https://api.iconify.design/mdi:domain-off.svg) | Full web app | ✗ Not Goal | Presentation slides only, not a web application |
-
-</details>
-
-<details><summary>Scope</summary>
-
-| Icon | Scope | Status | Description |
-|------|-------|--------|-------------|
-| ![chart](https://api.iconify.design/mdi:presentation.svg) | Slidev presentations | ✓ In Scope | Markdown-based slide decks with Vue components |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Shared Vue components | ✓ In Scope | CodeBlock, TopicCard, ComparisonTable, layouts |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Turbo build pipeline | ✓ In Scope | Cached builds, filtered dev servers, PDF export |
-| ![web](https://api.iconify.design/mdi:web-off.svg) | Web hosting | ✗ Out of Scope | Slides are presented locally, not deployed |
-| ![mobile](https://api.iconify.design/mdi:cellphone-off.svg) | Mobile slides | ✗ Out of Scope | Desktop-first presentation slides |
-
-</details>
-
-<details><summary>Key Concepts</summary>
-
-| Icon | Concept | Description |
-|------|---------|-------------|
-| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg) | Slidev | Vue-based presentation framework using Markdown |
-| ![building](https://api.iconify.design/mdi:domain.svg) | Turborepo | Monorepo task runner with caching and filtering |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Bun Workspaces | Package manager with workspace protocol support |
-| ![puzzle](https://api.iconify.design/mdi:puzzle.svg) | Shared Package | `@slides/shared` exports components, layouts, utils |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Vue SFC | Single File Components for reusable slide elements |
-
-</details>
-
-<details><summary>Core Principles</summary>
-
-| Icon | Principle | Description |
-|------|-----------|-------------|
-| ![puzzle](https://api.iconify.design/mdi:puzzle.svg) | DRY | Shared components avoid duplication across slide projects |
-| ![bolt](https://api.iconify.design/mdi:flash.svg) | Fast Dev | Turbo caching + Bun speed for instant dev servers |
-| ![doc](https://api.iconify.design/mdi:file-document-edit.svg) | Content First | Each project is just `slides.md` + optional components |
-| ![link](https://api.iconify.design/mdi:link-variant.svg) | Workspace Protocol | `workspace:*` for internal dependencies |
-
-</details>
-
-<details><summary>When To Use</summary>
-
-| Icon | Use Case | Description |
-|------|----------|-------------|
-| ![school](https://api.iconify.design/mdi:school.svg) | Learning topics | Create slide decks for topics you're learning |
-| ![presentation](https://api.iconify.design/mdi:presentation.svg) | Team presentations | Share technical talks with your team |
-| ![language](https://api.iconify.design/mdi:language.svg) | Language deep dives | Compare languages like Rust vs TypeScript |
-| ![framework](https://api.iconify.design/mdi:cube.svg) | Framework overviews | Present SolidJS, Vue, or other frameworks |
-
-</details>
-
-<details><summary>Best Practices</summary>
-
-| Icon | Practice | Description |
-|------|----------|-------------|
-| ![puzzle](https://api.iconify.design/mdi:puzzle.svg) | Use shared components | Import from `@slides/shared` instead of duplicating |
-| ![folder](https://api.iconify.design/mdi:folder.svg) | One slide per concept | Keep each slide focused on a single topic |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Use themes | Set `theme: seriph` or `theme: default` in frontmatter |
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Filter dev server | Use `--filter=@slides/{name}` to run one project |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Root dependencies | Keep Slidev CLI and themes at root level |
-
-</details>
-
-## Features
-
-| Icon | Feature | Description | Benefit | Usage |
-|------|---------|-------------|--------|-------|
-| ![building](https://api.iconify.design/mdi:domain.svg) | Turborepo Monorepo | Task orchestration with caching | Fast builds, filtered dev servers | `bunx turbo run dev --filter=@slides/learn-rust` |
-| ![puzzle](https://api.iconify.design/mdi:puzzle.svg) | Shared Components | Vue SFCs reusable across all slides | DRY, consistent UI | `import { TopicCard } from '@slides/shared'` |
-| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg) | Slidev Integration | Markdown-based slides with Vue | Rich presentations with code | `slidev slides.md --open` |
-| ![palette](https://api.iconify.design/mdi:palette.svg) | Dual Themes | Seriph and default themes included | Visual variety | `theme: seriph` in frontmatter |
-| ![export](https://api.iconify.design/mdi:file-export.svg) | PDF Export | Export slides to PDF | Share offline | `bunx turbo run export --filter=@slides/{name}` |
-| ![build](https://api.iconify.design/mdi:hammer.svg) | Build Static | Build slides as static sites | Deploy anywhere | `bunx turbo run build --filter=@slides/{name}` |
-| ![bolt](https://api.iconify.design/mdi:flash.svg) | Bun Runtime | Fast package management and scripts | Quick installs, native ESM | `bun install` |
-| ![search](https://api.iconify.design/mdi:magnify.svg) | Smart Filtering | Run tasks on specific workspaces | Save time during dev | `--filter=@slides/{name}` |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | Workspace Protocol | Internal deps via `workspace:*` | Version consistency | `"@slides/shared": "workspace:*"` |
-| ![target](https://api.iconify.design/mdi:target.svg) | Per-Project Slides | Each app has its own `slides.md` | Isolated content | `apps/{name}/slides.md` |
-| ![layout](https://api.iconify.design/mdi:view-quilt.svg) | Shared Layouts | SectionDivider, CenterLayout | Consistent slide layouts | `import { SectionDivider } from '@slides/shared'` |
-| ![wrench](https://api.iconify.design/mdi:wrench.svg) | Slide Utils | `formatSlideTitle`, `slugify` helpers | Code reuse | `import { slugify } from '@slides/shared'` |
-
 ## Quick Start
 
 1. **Clone and Install** — `terminal`
@@ -203,6 +114,23 @@ bunx turbo run dev --filter=@slides/my-topic
 └─────────────────────────────────────┘
 ```
 
+## Features
+
+| Icon | Feature | Description | Benefit | Usage |
+| :---: |---------|-------------|--------|-------|
+| ![building](https://api.iconify.design/mdi:domain.svg?color=303f9f) | Turborepo Monorepo | Task orchestration with caching | Fast builds, filtered dev servers | `bunx turbo run dev --filter=@slides/learn-rust` |
+| ![puzzle](https://api.iconify.design/mdi:puzzle.svg?color=7b1fa2) | Shared Components | Vue SFCs reusable across all slides | DRY, consistent UI | `import { TopicCard } from '@slides/shared'` |
+| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg?color=ffa000) | Slidev Integration | Markdown-based slides with Vue | Rich presentations with code | `slidev slides.md --open` |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | Dual Themes | Seriph and default themes included | Visual variety | `theme: seriph` in frontmatter |
+| ![export](https://api.iconify.design/mdi:file-export.svg?color=388e3c) | PDF Export | Export slides to PDF | Share offline | `bunx turbo run export --filter=@slides/{name}` |
+| ![build](https://api.iconify.design/mdi:hammer.svg?color=00796b) | Build Static | Build slides as static sites | Deploy anywhere | `bunx turbo run build --filter=@slides/{name}` |
+| ![bolt](https://api.iconify.design/mdi:flash.svg?color=f57c00) | Bun Runtime | Fast package management and scripts | Quick installs, native ESM | `bun install` |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=0097a7) | Smart Filtering | Run tasks on specific workspaces | Save time during dev | `--filter=@slides/{name}` |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=1976d2) | Workspace Protocol | Internal deps via `workspace:*` | Version consistency | `"@slides/shared": "workspace:*"` |
+| ![target](https://api.iconify.design/mdi:target.svg?color=d32f2f) | Per-Project Slides | Each app has its own `slides.md` | Isolated content | `apps/{name}/slides.md` |
+| ![layout](https://api.iconify.design/mdi:view-quilt.svg?color=303f9f) | Shared Layouts | SectionDivider, CenterLayout | Consistent slide layouts | `import { SectionDivider } from '@slides/shared'` |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=00796b) | Slide Utils | `formatSlideTitle`, `slugify` helpers | Code reuse | `import { slugify } from '@slides/shared'` |
+
 ## Usage
 
 ### slides.md
@@ -222,67 +150,109 @@ import { TopicCard, ComparisonTable } from '@slides/shared'
 
 ---
 
-## Ownership vs Garbage Collection
+## Project
 
-<ComparisonTable
-  headers={["Feature", "Rust", "TypeScript"]}
-  rows={[
-    ["Memory", "Ownership", "GC"],
-    ["Safety", "Compile-time", "Runtime"],
-  ]}
-/>
-```
+<details><summary>Goal</summary>
 
-```ansi
-┌─────────────────────────────────┐
-│  Slidev v52.16.0                │
-│                                 │
-│  theme       seriph             │
-│  css engine  unocss             │
-│  entry       slides.md          │
-│                                 │
-│  ● public slide show            │
-│    http://localhost:3031/       │
-│                                 │
-│  ● presenter mode               │
-│    http://localhost:3031/pre    │
-│                                 │
-│  ● slides overview              │
-│    http://localhost:3031/over   │
-└─────────────────────────────────┘
-```
+| Icon | Goal | Status | Description |
+| :---: |------|--------|-------------|
+| ![target](https://api.iconify.design/mdi:target.svg?color=1976d2) | Centralized slide management | ✓ Goal | Single repo for all Slidev presentations |
+| ![puzzle](https://api.iconify.design/mdi:puzzle.svg?color=7b1fa2) | Shared components | ✓ Goal | Reusable Vue components across all slide projects |
+| ![bolt](https://api.iconify.design/mdi:flash.svg?color=ffa000) | Turbo task orchestration | ✓ Goal | Build, dev, export tasks via Turborepo caching |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=d32f2f) | Per-project package.json | ✗ Not Goal | Root-level dependencies only for Slidev core |
+| ![building](https://api.iconify.design/mdi:domain-off.svg?color=d32f2f) | Full web app | ✗ Not Goal | Presentation slides only, not a web application |
+
+</details>
+
+<details><summary>Scope</summary>
+
+| Icon | Scope | Status | Description |
+| :---: |-------|--------|-------------|
+| ![chart](https://api.iconify.design/mdi:presentation.svg?color=1976d2) | Slidev presentations | ✓ In Scope | Markdown-based slide decks with Vue components |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=7b1fa2) | Shared Vue components | ✓ In Scope | CodeBlock, TopicCard, ComparisonTable, layouts |
+| ![wrench](https://api.iconify.design/mdi:wrench.svg?color=00796b) | Turbo build pipeline | ✓ In Scope | Cached builds, filtered dev servers, PDF export |
+| ![web](https://api.iconify.design/mdi:web-off.svg?color=d32f2f) | Web hosting | ✗ Out of Scope | Slides are presented locally, not deployed |
+| ![mobile](https://api.iconify.design/mdi:cellphone-off.svg?color=d32f2f) | Mobile slides | ✗ Out of Scope | Desktop-first presentation slides |
+
+</details>
+
+<details><summary>Key Concepts</summary>
+
+| Icon | Concept | Description |
+| :---: |---------|-------------|
+| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg?color=ffa000) | Slidev | Vue-based presentation framework using Markdown |
+| ![building](https://api.iconify.design/mdi:domain.svg?color=303f9f) | Turborepo | Monorepo task runner with caching and filtering |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | Bun Workspaces | Package manager with workspace protocol support |
+| ![puzzle](https://api.iconify.design/mdi:puzzle.svg?color=c2185b) | Shared Package | `@slides/shared` exports components, layouts, utils |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=0097a7) | Vue SFC | Single File Components for reusable slide elements |
+
+</details>
+
+<details><summary>Core Principles</summary>
+
+| Icon | Principle | Description |
+| :---: |-----------|-------------|
+| ![puzzle](https://api.iconify.design/mdi:puzzle.svg?color=7b1fa2) | DRY | Shared components avoid duplication across slide projects |
+| ![bolt](https://api.iconify.design/mdi:flash.svg?color=ffa000) | Fast Dev | Turbo caching + Bun speed for instant dev servers |
+| ![doc](https://api.iconify.design/mdi:file-document-edit.svg?color=1976d2) | Content First | Each project is just `slides.md` + optional components |
+| ![link](https://api.iconify.design/mdi:link-variant.svg?color=388e3c) | Workspace Protocol | `workspace:*` for internal dependencies |
+
+</details>
+
+<details><summary>When To Use</summary>
+
+| Icon | Use Case | Description |
+| :---: |----------|-------------|
+| ![school](https://api.iconify.design/mdi:school.svg?color=1976d2) | Learning topics | Create slide decks for topics you're learning |
+| ![presentation](https://api.iconify.design/mdi:presentation.svg?color=303f9f) | Team presentations | Share technical talks with your team |
+| ![language](https://api.iconify.design/mdi:language.svg?color=ffa000) | Language deep dives | Compare languages like Rust vs TypeScript |
+| ![framework](https://api.iconify.design/mdi:cube.svg?color=7b1fa2) | Framework overviews | Present SolidJS, Vue, or other frameworks |
+
+</details>
+
+<details><summary>Best Practices</summary>
+
+| Icon | Practice | Description |
+| :---: |----------|-------------|
+| ![puzzle](https://api.iconify.design/mdi:puzzle.svg?color=7b1fa2) | Use shared components | Import from `@slides/shared` instead of duplicating |
+| ![folder](https://api.iconify.design/mdi:folder.svg?color=ffa000) | One slide per concept | Keep each slide focused on a single topic |
+| ![palette](https://api.iconify.design/mdi:palette.svg?color=c2185b) | Use themes | Set `theme: seriph` or `theme: default` in frontmatter |
+| ![search](https://api.iconify.design/mdi:magnify.svg?color=0097a7) | Filter dev server | Use `--filter=@slides/{name}` to run one project |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=00796b) | Root dependencies | Keep Slidev CLI and themes at root level |
+
+</details>
 
 ## API References
 
 <details><summary>Shared Components (@slides/shared)</summary>
 
 | Icon | Component | Props | Description |
-|------|-----------|-------|-------------|
-| ![code](https://api.iconify.design/mdi:code-tags.svg) | `CodeBlock` | `title?`, `filename?`, `lang?` | Code block wrapper with optional filename header |
-| ![card](https://api.iconify.design/mdi:card-text.svg) | `TopicCard` | `title`, `description?`, `icon?` | Card component for topic highlights |
-| ![table](https://api.iconify.design/mdi:table.svg) | `ComparisonTable` | `headers: string[]`, `rows: string[][]` | Table for side-by-side comparisons |
-| ![layout](https://api.iconify.design/mdi:view-quilt.svg) | `SectionDivider` | `title?` | Full-height centered section divider layout |
-| ![target](https://api.iconify.design/mdi:target.svg) | `CenterLayout` | `title?` | Centered content layout for slides |
+| :---: |-----------|-------|-------------|
+| ![code](https://api.iconify.design/mdi:code-tags.svg?color=1976d2) | `CodeBlock` | `title?`, `filename?`, `lang?` | Code block wrapper with optional filename header |
+| ![card](https://api.iconify.design/mdi:card-text.svg?color=7b1fa2) | `TopicCard` | `title`, `description?`, `icon?` | Card component for topic highlights |
+| ![table](https://api.iconify.design/mdi:table.svg?color=ffa000) | `ComparisonTable` | `headers: string[]`, `rows: string[][]` | Table for side-by-side comparisons |
+| ![layout](https://api.iconify.design/mdi:view-quilt.svg?color=303f9f) | `SectionDivider` | `title?` | Full-height centered section divider layout |
+| ![target](https://api.iconify.design/mdi:target.svg?color=c2185b) | `CenterLayout` | `title?` | Centered content layout for slides |
 
 </details>
 
 <details><summary>Shared Utilities (@slides/shared)</summary>
 
 | Icon | Function | Signature | Description |
-|------|----------|-----------|-------------|
-| ![tag](https://api.iconify.design/mdi:tag.svg) | `formatSlideTitle` | `(title: string) => string` | Convert `kebab-case` to `Title Case` |
-| ![link](https://api.iconify.design/mdi:link-variant.svg) | `slugify` | `(text: string) => string` | Convert text to URL-safe slug |
+| :---: |----------|-----------|-------------|
+| ![tag](https://api.iconify.design/mdi:tag.svg?color=c2185b) | `formatSlideTitle` | `(title: string) => string` | Convert `kebab-case` to `Title Case` |
+| ![link](https://api.iconify.design/mdi:link-variant.svg?color=388e3c) | `slugify` | `(text: string) => string` | Convert text to URL-safe slug |
 
 </details>
 
 <details><summary>Turbo Tasks</summary>
 
 | Icon | Task | Command | Description |
-|------|------|---------|-------------|
-| ![rocket](https://api.iconify.design/mdi:rocket.svg) | `dev` | `turbo run dev` | Start Slidev dev servers (persistent) |
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | `build` | `turbo run build` | Build static sites with caching |
-| ![export](https://api.iconify.design/mdi:file-export.svg) | `export` | `turbo run export` | Export slides to PDF |
-| ![check](https://api.iconify.design/mdi:check-circle.svg) | `verify` | `turbo run verify` | Run verification checks |
+| :---: |------|---------|-------------|
+| ![rocket](https://api.iconify.design/mdi:rocket.svg?color=303f9f) | `dev` | `turbo run dev` | Start Slidev dev servers (persistent) |
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=00796b) | `build` | `turbo run build` | Build static sites with caching |
+| ![export](https://api.iconify.design/mdi:file-export.svg?color=388e3c) | `export` | `turbo run export` | Export slides to PDF |
+| ![check](https://api.iconify.design/mdi:check-circle.svg?color=c2185b) | `verify` | `turbo run verify` | Run verification checks |
 
 </details>
 
@@ -395,10 +365,10 @@ slides/
 <details><summary>Workspaces</summary>
 
 | Icon | Workspace | Package Name | Description |
-|------|-----------|-------------|-------------|
-| ![package](https://api.iconify.design/mdi:package-variant.svg) | `packages/shared` | `@slides/shared` | Shared Vue components, layouts, utils |
-| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg) | `apps/learn-rust` | `@slides/learn-rust` | Rust for TypeScript Developers |
-| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg) | `apps/solidjs` | `@slides/solidjs` | SolidJS Presentation |
+| :---: |-----------|-------------|-------------|
+| ![package](https://api.iconify.design/mdi:package-variant.svg?color=7b1fa2) | `packages/shared` | `@slides/shared` | Shared Vue components, layouts, utils |
+| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg?color=ffa000) | `apps/learn-rust` | `@slides/learn-rust` | Rust for TypeScript Developers |
+| ![doc](https://api.iconify.design/mdi:file-presentation-box.svg?color=1976d2) | `apps/solidjs` | `@slides/solidjs` | SolidJS Presentation |
 
 </details>
 
